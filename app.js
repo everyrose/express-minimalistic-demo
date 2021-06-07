@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express')
 const app = express()
 const port = 3000
@@ -8,6 +9,7 @@ const {PETS} = require("./pets");
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
+app.use(cors())
 
 const pets = [...PETS];
 
